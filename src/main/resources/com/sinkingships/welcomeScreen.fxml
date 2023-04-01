@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="ap" prefHeight="303.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sinkingships.controllers.WelcomeScreenController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="303.0" fitWidth="657.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@welcomeScreenSea.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="147.0" fitWidth="606.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+               </image>
+            </ImageView>
+            <Button layoutX="203.0" layoutY="221.0" mnemonicParsing="false" onAction="#startButtonClicked" styleClass="startButton" stylesheets="@style/welcomePage.css" text="START THE GAME" />
+            <ImageView fitHeight="147.0" fitWidth="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/SinkingShipsTitleBackroundTransparent.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

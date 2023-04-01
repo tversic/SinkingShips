@@ -1,0 +1,16 @@
+.titlePane{
+    -fx-background-color: #7171ec;
+}
+.borderPane{
+    -fx-background-color: #7171ec;
+}
+.textField{
+    -fx-background-color: #a5a5ee;
+}
+.startSailingButton{
+    -fx-background-color: #6464f1;
+    -fx-background-size: 100%;
+}
+.startSailingButton:hover{
+    -fx-translate-y: 2px;
+}
