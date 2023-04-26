@@ -35,6 +35,7 @@ public class Draggable {
                     node.setLayoutY(mouseEvent.getSceneY() - mouseOffsetYVertical);
                 }
             }
+            System.out.println("X: " + mouseEvent.getSceneX() + " Y: " + mouseEvent.getSceneY());
         });
     }
 

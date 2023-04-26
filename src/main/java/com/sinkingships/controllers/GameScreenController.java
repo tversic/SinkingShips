@@ -172,8 +172,7 @@ public class GameScreenController implements Initializable {
 
     @FXML
     private void setShip(){
-        Ship activeShip = getActiveShip();
-        System.out.println(activeShip.getShipImage().getId());
+        findStartSquare();
     }
 
     private Ship getActiveShip(){
@@ -192,5 +191,199 @@ public class GameScreenController implements Initializable {
         activeShip.getShipImage().setLayoutX(180);
         activeShip.getShipImage().setLayoutY(250);
 
+    }
+    
+    private void findStartSquare(){
+        Ship activeShip = allShips.stream().filter(Ship::isActive).findFirst().get();
+        double x = activeShip.getShipImage().getLayoutX();
+        double y = activeShip.getShipImage().getLayoutY();
+        boolean isRotate = activeShip.getShipImage().getRotate() != 0;
+        if(isRotate){
+        } else {
+            // FIRST COLUMN
+            if(x < 90 && y < 65){
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 90 && y < 180) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 90 && y < 295) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 90 && y < 410) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 90 && y < 520) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 90 && y < 630) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 90 && y < 740) {
+                activeShip.getShipImage().setLayoutX(45);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            // SECOND COLUMN
+            else if(x < 200 && y < 65){
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 200 && y < 180) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 200 && y < 295) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 200 && y < 410) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 200 && y < 520) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 200 && y < 630) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 200 && y < 740) {
+                activeShip.getShipImage().setLayoutX(100);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //THIRD COLUMN
+            else if(x < 300 && y < 65){
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 300 && y < 180) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 300 && y < 295) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 300 && y < 410) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 300 && y < 520) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 300 && y < 630) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 300 && y < 740) {
+                activeShip.getShipImage().setLayoutX(150);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //FOURTH COLUMN
+            else if(x < 400 && y < 65){
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 400 && y < 180) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 400 && y < 295) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 400 && y < 410) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 400 && y < 520) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 400 && y < 630) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 400 && y < 740) {
+                activeShip.getShipImage().setLayoutX(200);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //FIFTH COLUMN
+            else if(x < 500 && y < 65){
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 500 && y < 180) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 500 && y < 295) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 500 && y < 410) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 500 && y < 520) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 500 && y < 630) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 500 && y < 740) {
+                activeShip.getShipImage().setLayoutX(250);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //SIXTH COLUMN
+            else if(x < 600 && y < 65){
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 600 && y < 180) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 600 && y < 295) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 600 && y < 410) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 600 && y < 520) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 600 && y < 630) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 600 && y < 740) {
+                activeShip.getShipImage().setLayoutX(300);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //SEVENTH COLUMN
+            else if(x < 700 && y < 65){
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 700 && y < 180) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 700 && y < 295) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 700 && y < 410) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 700 && y < 520) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 700 && y < 630) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 700 && y < 740) {
+                activeShip.getShipImage().setLayoutX(350);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+            //EIGTH COLUMN
+            else if(x < 800 && y < 65){
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(25);
+            } else if (x < 800 && y < 180) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(125);
+            } else if (x < 800 && y < 295) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(233);
+            } else if (x < 800 && y < 410) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(352);
+            } else if (x < 800 && y < 520) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(465);
+            } else if (x < 800 && y < 630) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(575);
+            } else if (x < 800 && y < 740) {
+                activeShip.getShipImage().setLayoutX(400);
+                activeShip.getShipImage().setLayoutY(685);
+            }
+        }
     }
 }

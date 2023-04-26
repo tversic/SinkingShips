@@ -17,7 +17,7 @@ public class AppGlobal {
 
     public static void loadNewScreen(String fxmlName, AnchorPane anchorPane) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlName));
-        Scene scene = new Scene(fxmlLoader.load(), 1630, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1630, 1050);
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setScene(scene);
         stage.setResizable(false);
