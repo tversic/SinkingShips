@@ -3,6 +3,7 @@ package com.sinkingships;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.*;
@@ -22,5 +23,12 @@ public class AppGlobal {
         stage.setScene(scene);
         stage.setResizable(false);
         scene.getWindow().centerOnScreen();
+    }
+
+    public static void showErrorMessage(String message) {
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText("ERROR");
+        errorAlert.setContentText(message);
+        errorAlert.showAndWait();
     }
 }

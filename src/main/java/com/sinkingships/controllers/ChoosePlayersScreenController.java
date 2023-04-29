@@ -23,6 +23,8 @@ public class ChoosePlayersScreenController {
     @FXML
     AnchorPane anchorPaneChoosePlayer;
     @FXML
+    AnchorPane rootPane;
+    @FXML
     void funAnimation(){
         boatImage.setTranslateX(60);
         sailorOne.setRotate(180);

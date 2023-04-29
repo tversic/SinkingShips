@@ -10,4 +10,5 @@ import lombok.*;
 public class Ship {
     private ImageView shipImage;
     private boolean isActive = false;
+    private String shipName;
 }
