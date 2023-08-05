@@ -40,7 +40,7 @@
                       <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Pane fx:id="paneOne" prefHeight="200.0" prefWidth="200.0" />
+                        <Pane fx:id="paneTarget00" prefHeight="200.0" prefWidth="200.0" />
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
@@ -116,6 +116,16 @@
                         <Image url="@images/ship3.png" />
                      </image>
                   </ImageView>
+                   <ImageView fx:id="brownShip5" fitHeight="111.0" fitWidth="510.0" pickOnBounds="true">
+                       <image>
+                           <Image url="@images/ship5.png" />
+                       </image>
+                   </ImageView>
+                   <ImageView fx:id="secondGrayShip3" fitHeight="111.0" fitWidth="304.0" pickOnBounds="true">
+                       <image>
+                           <Image url="@images/ship2.png" />
+                       </image>
+                   </ImageView>
                </children>
             </Pane>
          </children>
@@ -146,6 +156,72 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
+               <children>
+                  <Pane fx:id="pane00Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" />
+                  <Pane fx:id="pane01Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                  <Pane fx:id="pane02Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                  <Pane fx:id="pane03Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+                  <Pane fx:id="pane04Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" />
+                  <Pane fx:id="pane05Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" />
+                  <Pane fx:id="pane06Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" />
+                  <Pane fx:id="pane07Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" />
+                  <Pane fx:id="pane10Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane11Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane12Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane13Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane14Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane15Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane16Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane17Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                  <Pane fx:id="pane20Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane21Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane22Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane23Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane24Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane25Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane26Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane27Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                  <Pane fx:id="pane30Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane31Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane32Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane33Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane34Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane35Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane36Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane37Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                  <Pane fx:id="pane40Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane41Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane42Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane43Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane44Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane45Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane46Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane47Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                  <Pane fx:id="pane50Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane52Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane52Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane53Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane54Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane55Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane56Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane57Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+                  <Pane fx:id="pane60Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane61Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane62Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane63Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane64Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane65Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane66Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane67Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+                  <Pane fx:id="pane70Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane71Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane72Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane73Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane74Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane75Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane76Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                  <Pane fx:id="pane77Target" onMouseClicked="#hit" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+               </children>
             </GridPane>
          </children>
       </AnchorPane>
@@ -159,7 +235,8 @@
             <Font name="Showcard Gothic" size="48.0" />
          </font>
       </Text>
-      <Button layoutX="1171.0" layoutY="924.0" mnemonicParsing="false" onAction="#setShip" prefHeight="46.0" prefWidth="164.0" text="SET SHIP" />
-      <Button layoutX="1353.0" layoutY="923.0" mnemonicParsing="false" onAction="#rotateSip" prefHeight="45.0" prefWidth="147.0" text="ROTATE SHIP" />
+       <Button fx:id="startButton" layoutX="650.0" layoutY="924.0" mnemonicParsing="false" onAction="#startGame" prefHeight="46.0" prefWidth="164.0" text="START GAME" />
+       <Button layoutX="1171.0" layoutY="924.0" mnemonicParsing="false" onAction="#setShip" prefHeight="46.0" prefWidth="164.0" text="SET SHIP" />
+       <Button layoutX="1353.0" layoutY="923.0" mnemonicParsing="false" onAction="#rotateSip" prefHeight="45.0" prefWidth="147.0" text="ROTATE SHIP" />
    </children>
 </AnchorPane>

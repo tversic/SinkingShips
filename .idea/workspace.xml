@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17f49cca-dbf9-4c50-b377-3b36fb3886e8" name="Changes" comment="pictures and other commit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="17f49cca-dbf9-4c50-b377-3b36fb3886e8" name="Changes" comment="added row check and set ship function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/AppGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/AppGlobal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/ChoosePlayersScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/ChoosePlayersScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/gameObjects/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/gameObjects/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/utility/Draggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/utility/Draggable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sinkingships/choosePlayersScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sinkingships/choosePlayersScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/sinkingships/gameScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sinkingships/gameScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +106,13 @@
       <workItem from="1680096785548" duration="3000" />
       <workItem from="1680096868839" duration="805000" />
       <workItem from="1680343317476" duration="718000" />
-      <workItem from="1682786222622" duration="7911000" />
+      <workItem from="1682786222622" duration="8819000" />
+      <workItem from="1685348603440" duration="1232000" />
+      <workItem from="1688210553427" duration="2986000" />
+      <workItem from="1688746560277" duration="158000" />
+      <workItem from="1690618002277" duration="6177000" />
+      <workItem from="1690878163686" duration="11560000" />
+      <workItem from="1691052126596" duration="2445000" />
     </task>
     <task id="LOCAL-00001" summary="Inital commit">
       <created>1680343343086</created>
@@ -119,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680343343086</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added row check and set ship function">
+      <created>1682795756091</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682795756091</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,170 +147,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inital commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inital commit" />
+    <MESSAGE value="added row check and set ship function" />
+    <option name="LAST_COMMIT_MESSAGE" value="added row check and set ship function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>620</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>625</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>630</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>635</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>640</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>645</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>650</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>657</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>662</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>667</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>672</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>677</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>682</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>687</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>613</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>608</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>603</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>598</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>593</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>583</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>588</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>576</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>571</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>566</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>561</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
           <line>556</line>
-          <option name="timeStamp" value="39" />
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>855</line>
-          <option name="timeStamp" value="55" />
+          <line>514</line>
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>875</line>
-          <option name="timeStamp" value="59" />
+          <line>263</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>871</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>878</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>830</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>622</line>
-          <option name="timeStamp" value="63" />
+          <line>988</line>
+          <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

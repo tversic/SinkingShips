@@ -16,10 +16,13 @@ import java.io.IOException;
 public class AppGlobal {
     public static String userName;
 
+    public static boolean isGameStarted = false;
     public static void loadNewScreen(String fxmlName, AnchorPane anchorPane) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlName));
-        Scene scene = new Scene(fxmlLoader.load(), 1630, 1050);
+        Scene scene = new Scene(fxmlLoader.load(), 1620, 990);
         Stage stage = (Stage) anchorPane.getScene().getWindow();
+        if (AppGlobal.userName != null)
+         stage.setTitle("Player: " + AppGlobal.userName);
         stage.setScene(scene);
         stage.setResizable(false);
         scene.getWindow().centerOnScreen();
@@ -30,5 +33,11 @@ public class AppGlobal {
         errorAlert.setHeaderText("ERROR");
         errorAlert.setContentText(message);
         errorAlert.showAndWait();
+    }
+    public static void showWinningMessage() {
+        Alert winningAlert = new Alert(Alert.AlertType.INFORMATION);
+        winningAlert.setHeaderText("WIN");
+        winningAlert.setContentText("Player " + userName + " has won a game");
+        winningAlert.showAndWait();
     }
 }
