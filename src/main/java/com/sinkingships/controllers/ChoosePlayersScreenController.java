@@ -1,5 +1,6 @@
 package com.sinkingships.controllers;
 
+import com.sinkingships.Client;
 import com.sinkingships.AppGlobal;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -8,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
+import java.net.Socket;
 
 @NoArgsConstructor
 public class ChoosePlayersScreenController {
@@ -40,7 +42,7 @@ public class ChoosePlayersScreenController {
     @FXML
     void startSailingButtonClicked() throws IOException {
         AppGlobal.userName = enterPlayerNameField.getText();
+        System.out.println("WHOAMI " + AppGlobal.userName);
         AppGlobal.loadNewScreen("gameScreen.fxml", anchorPaneChoosePlayer);
-        System.out.println(AppGlobal.userName);
     }
 }

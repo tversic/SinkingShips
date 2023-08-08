@@ -1,6 +1,7 @@
 package com.sinkingships.controllers;
 
 import com.sinkingships.AppGlobal;
+import com.sinkingships.Client;
 import com.sinkingships.gameObjects.Ship;
 import com.sinkingships.utility.Draggable;
 import javafx.fxml.FXML;
@@ -13,8 +14,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import lombok.NoArgsConstructor;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -167,6 +171,8 @@ public class GameScreenController implements Initializable {
     boolean[][] gameBoard = new boolean[8][8];
     boolean[][] opponentsBoard = new boolean[8][8];
 
+    Client client;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         draggable.makeDraggable(blackShip5);
@@ -181,6 +187,19 @@ public class GameScreenController implements Initializable {
         allShips.add(new Ship(grayShip3, false, "grayShip3"));
         allShips.add(new Ship(brownShip5, false, "browShip5"));
         allShips.add(new Ship(secondGrayShip3, false, "secondGrayShip3"));
+
+
+        //SOCKET INITIALIZATION
+        Socket socket1 = null;
+        try {
+            socket1 = new Socket("localhost", 1234);
+            client = new Client(socket1, AppGlobal.userName);
+            client.listenForMessage();
+            client.sendMessage2("test message");
+            /*client.sendMessage();*/
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     private void dragOverPane(){
@@ -969,6 +988,7 @@ public class GameScreenController implements Initializable {
     @FXML
     private void startGame(){
         this.opponentsBoard = this.gameBoard;
+        client.sendMessage2( "START " + " >" + Arrays.deepToString(this.gameBoard));
         System.out.println("start game");
         AppGlobal.isGameStarted = true;
     }
