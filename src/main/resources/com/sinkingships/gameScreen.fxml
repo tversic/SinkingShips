@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -235,8 +236,24 @@
             <Font name="Showcard Gothic" size="48.0" />
          </font>
       </Text>
-       <Button fx:id="startButton" layoutX="650.0" layoutY="924.0" mnemonicParsing="false" onAction="#startGame" prefHeight="46.0" prefWidth="164.0" text="START GAME" />
-       <Button layoutX="1171.0" layoutY="924.0" mnemonicParsing="false" onAction="#setShip" prefHeight="46.0" prefWidth="164.0" text="SET SHIP" />
-       <Button layoutX="1353.0" layoutY="923.0" mnemonicParsing="false" onAction="#rotateSip" prefHeight="45.0" prefWidth="147.0" text="ROTATE SHIP" />
+       <Button fx:id="startButton" layoutX="652.0" layoutY="924.0" mnemonicParsing="false" onAction="#startGame" prefHeight="46.0" prefWidth="164.0" text="START GAME" />
+       <Button fx:id="setShip" layoutX="1171.0" layoutY="924.0" mnemonicParsing="false" onAction="#setShip" prefHeight="46.0" prefWidth="164.0" text="SET SHIP" />
+       <Button fx:id="rotateShip" layoutX="1353.0" layoutY="923.0" mnemonicParsing="false" onAction="#rotateSip" prefHeight="45.0" prefWidth="147.0" text="ROTATE SHIP" />
+      <Button fx:id="readyButton" layoutX="476.0" layoutY="924.0" mnemonicParsing="false" onAction="#readyMe" prefHeight="46.0" prefWidth="164.0" text="READY" />
+      <Label fx:id="waitLable" layoutX="458.0" layoutY="928.0" prefHeight="39.0" prefWidth="510.0" text="WAIT FOR THE OTHER PLAYER TO CONNECT" textFill="#cee809">
+         <font>
+            <Font name="Showcard Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="yourTurnLabel" layoutX="458.0" layoutY="928.0" prefHeight="39.0" prefWidth="510.0" text="IT IS YOUR TURN TO PLAY" textFill="#cee809">
+         <font>
+            <Font name="Showcard Gothic" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="waitForPlayer" layoutX="468.0" layoutY="938.0" prefHeight="39.0" prefWidth="510.0" text="WAITING FOR YOUR OPPONENT" textFill="#cee809">
+         <font>
+            <Font name="Showcard Gothic" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

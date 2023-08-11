@@ -4,9 +4,11 @@ import com.sinkingships.AppGlobal;
 import com.sinkingships.Client;
 import com.sinkingships.gameObjects.Ship;
 import com.sinkingships.utility.Draggable;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -14,7 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import lombok.NoArgsConstructor;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
@@ -166,13 +168,29 @@ public class GameScreenController implements Initializable {
     Pane pane77;
     @FXML
     Button startButton;
+    @FXML
+    Button readyButton;
+    @FXML
+    Button rotateShip;
+    @FXML
+    Button setShip;
+    @FXML
+    Label waitLable;
+    @FXML
+    Label yourTurnLabel;
+    @FXML
+    Label waitForPlayer;
+    boolean myTurn = false;
 
     List<Ship> allShips = new ArrayList<>();
     boolean[][] gameBoard = new boolean[8][8];
     boolean[][] opponentsBoard = new boolean[8][8];
 
-    Client client;
+    private BufferedWriter bufferedWriter;
+    private BufferedReader bufferedReader;
 
+    Client client;
+    Socket socket1 = null;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         draggable.makeDraggable(blackShip5);
@@ -183,24 +201,69 @@ public class GameScreenController implements Initializable {
         brownShip5.setVisible(false);
         secondGrayShip3.setVisible(false);
         startButton.setVisible(false);
+        readyButton.setVisible(false);
+        waitLable.setVisible(false);
+        waitForPlayer.setVisible(false);
+        yourTurnLabel.setVisible(false);
         allShips.add(new Ship(blackShip5, true, "blackShip5"));
         allShips.add(new Ship(grayShip3, false, "grayShip3"));
         allShips.add(new Ship(brownShip5, false, "browShip5"));
+
         allShips.add(new Ship(secondGrayShip3, false, "secondGrayShip3"));
 
 
         //SOCKET INITIALIZATION
-        Socket socket1 = null;
         try {
             socket1 = new Socket("localhost", 1234);
+
+
+            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream()));
+            this.bufferedReader = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
             client = new Client(socket1, AppGlobal.userName);
-            client.listenForMessage();
+            this.listenForMessage();
             client.sendMessage2("test message");
             /*client.sendMessage();*/
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    public void listenForMessage() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String msgFromGroupChat;
+
+                while (socket1.isConnected()) {
+                    try {
+                        msgFromGroupChat = bufferedReader.readLine();
+                        if (msgFromGroupChat.contains("BOTH_READY")) {
+                            bothReady();
+                        } else if (msgFromGroupChat.contains("YOUR_TURN")) {
+                            myTurn = true;
+                            showMyTurnText();
+                        } else if (msgFromGroupChat.contains(("OPPONENTS_TURN"))) {
+                            myTurn = false;
+                            showNotMyTurnText();
+                        }
+                    } catch (IOException e) {
+                        closeEverything(socket1, bufferedReader, bufferedWriter);
+                    }
+                }
+            }
+        }).start();
+    }
+
+    private void showMyTurnText() {
+        yourTurnLabel.setVisible(true);
+        waitForPlayer.setVisible(false);
+    }
+
+    private void showNotMyTurnText() {
+        yourTurnLabel.setVisible(false);
+        waitForPlayer.setVisible(true);
+    }
+
     @FXML
     private void dragOverPane(){
        // paneOne.setBackground(Background.fill(Paint.valueOf("yellow")));
@@ -238,7 +301,9 @@ public class GameScreenController implements Initializable {
                 draggable.makeNotDraggable(secondGrayShip3);
                 Ship activeShip = allShips.stream().filter(s -> s.getShipImage() == brownShip5).findFirst().get();
                 activeShip.setActive(false);
-                startButton.setVisible(true);
+                readyButton.setVisible(true);
+                setShip.setVisible(false);
+                rotateShip.setVisible(false);
             }
         }
     }
@@ -994,10 +1059,12 @@ public class GameScreenController implements Initializable {
     }
     @FXML
     private void hit(MouseEvent event) {
-        if (AppGlobal.isGameStarted) {
+        if (AppGlobal.isGameStarted && myTurn) {
             Pane clickedPane = (Pane) event.getSource();
             System.out.println("Clicked pane: " + clickedPane.getId());
+            client.sendMessage2("HIT");
             didItHit(clickedPane.getId().substring(4, 6), clickedPane);
+            myTurn = false;
         }
     }
 
@@ -1011,13 +1078,28 @@ public class GameScreenController implements Initializable {
                 clickedPane.setBackground(Background.fill(Paint.valueOf("yellow")));
             else if (clickedPane.getBackground() == null)
                 clickedPane.setBackground(Background.fill(Paint.valueOf("yellow")));
-        if (checkWin()) {
+     /*   if (checkWin()) {
             AppGlobal.showWinningMessage();
             System.exit(0);
         }
 
+      */
+
     }
 
+    @FXML
+    private void readyMe() {
+        AppGlobal.isGameStarted = true;
+        readyButton.setVisible(false);
+        waitLable.setVisible(true);
+        client.sendMessage2( "READY_ME " + " >" + Arrays.deepToString(this.gameBoard));
+       // startButton.setVisible(true);
+    }
+
+    private void bothReady() {
+        waitLable.setVisible(false);
+        waitForPlayer.setVisible(true);
+    }
     private boolean checkWin() {
         boolean isWon = true;
         for (int i = 0; i < 8; i++) {
@@ -1029,5 +1111,19 @@ public class GameScreenController implements Initializable {
             }
         }
         return isWon;
+    }
+
+
+    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
+        try {
+            if (socket != null)
+                socket.close();
+            if (bufferedReader != null)
+                bufferedReader.close();
+            if (bufferedWriter != null)
+                bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
