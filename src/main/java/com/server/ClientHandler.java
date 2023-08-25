@@ -1,9 +1,13 @@
 package com.server;
 
+import com.sinkingships.AppGlobal;
+import javafx.scene.control.Alert;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 
 public class ClientHandler implements Runnable {
 
@@ -12,6 +16,7 @@ public class ClientHandler implements Runnable {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String userName;
+    private int hitCount = 0;
 
     private boolean ready = false;
 
@@ -50,14 +55,40 @@ public class ClientHandler implements Runnable {
             try {
                 // HIT HANDLING
                 if (messageToSend.contains("HIT")) {
-                    System.out.println("hit function");
                     String[] parts = messageToSend.split(":");
                     String user = "";
                     if (parts.length > 0) {
                         user = parts[0].trim();
-                        System.out.println(user);
                     } else {
                         System.out.println("No delimiter found in the input string.");
+                    }
+                    String finalUser = user;
+                    Optional<ClientHandler> opponentHandler = clientHandlers.stream()
+                                                                            .filter(h -> !h.userName.equals(finalUser)).findFirst();
+                    Optional<ClientHandler> yourHandler = clientHandlers.stream()
+                                .filter(h -> h.userName.equals(finalUser)).findFirst();
+
+                    boolean opponentBoard[][] = null;
+                    if (opponentHandler.isPresent())
+                        opponentBoard = opponentHandler.get().boards.get(opponentHandler.get().userName);
+
+                    if (didItHit(messageToSend.substring(messageToSend.length() - 2, messageToSend.length()), opponentBoard)) {
+                        if (yourHandler.isPresent()) {
+                            yourHandler.get().bufferedWriter.write("HIT");
+                            yourHandler.get().bufferedWriter.newLine();
+                            yourHandler.get().bufferedWriter.flush();
+                            yourHandler.get().hitCount ++;
+                            if (yourHandler.get().hitCount >= 16) {
+                                clientHandler.bufferedWriter.write("WIN " + "Player " + yourHandler.get().userName + " has won a game");
+                                clientHandler.bufferedWriter.newLine();
+                                clientHandler.bufferedWriter.flush();
+
+                                /*Alert winningAlert = new Alert(Alert.AlertType.NONE);
+                                winningAlert.setHeaderText("WIN");
+                                winningAlert.setContentText("Player " + yourHandler.get().userName + " has won a game");
+                                winningAlert.showAndWait();*/
+                            }
+                        }
                     }
 
                     if (clientHandler.userName.equals(user)) {
@@ -95,7 +126,7 @@ public class ClientHandler implements Runnable {
                         }
                     }
                     // save players game state to client handler
-                    boards.put(clientHandler.userName, matrix);
+                    boards.putIfAbsent(clientHandler.userName, matrix);
 
 
                     ready = true;
@@ -124,6 +155,14 @@ public class ClientHandler implements Runnable {
                 closeEverything(socket, bufferedReader, bufferedWriter);
             }
         }
+    }
+
+    private boolean didItHit(String coordinates, boolean[][] opponentsBoard) {
+        if (opponentsBoard[Integer.parseInt(String.valueOf(coordinates.charAt(1)))][Integer.parseInt(String.valueOf(coordinates.charAt(0)))]) {
+            opponentsBoard[Integer.parseInt(String.valueOf(coordinates.charAt(1)))][Integer.parseInt(String.valueOf(coordinates.charAt(0)))] = false;
+            return true;
+        } else
+            return false;
     }
     public void removeClientHandler() {
         clientHandlers.remove(this);

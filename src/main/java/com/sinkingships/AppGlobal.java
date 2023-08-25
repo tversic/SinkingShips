@@ -34,10 +34,10 @@ public class AppGlobal {
         errorAlert.setContentText(message);
         errorAlert.showAndWait();
     }
-    public static void showWinningMessage() {
+    public static void showWinningMessage(String usernamePlayer) {
         Alert winningAlert = new Alert(Alert.AlertType.INFORMATION);
         winningAlert.setHeaderText("WIN");
-        winningAlert.setContentText("Player " + userName + " has won a game");
+        winningAlert.setContentText("Player " + usernamePlayer + " has won a game");
         winningAlert.showAndWait();
     }
 }

@@ -7,6 +7,7 @@ import com.sinkingships.utility.Draggable;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -182,6 +183,8 @@ public class GameScreenController implements Initializable {
     Label waitForPlayer;
     boolean myTurn = false;
 
+    Pane clickedPane;
+
     List<Ship> allShips = new ArrayList<>();
     boolean[][] gameBoard = new boolean[8][8];
     boolean[][] opponentsBoard = new boolean[8][8];
@@ -232,19 +235,30 @@ public class GameScreenController implements Initializable {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String msgFromGroupChat;
+                String msgFromServer;
 
                 while (socket1.isConnected()) {
                     try {
-                        msgFromGroupChat = bufferedReader.readLine();
-                        if (msgFromGroupChat.contains("BOTH_READY")) {
+                        msgFromServer = bufferedReader.readLine();
+                        if (msgFromServer.contains("BOTH_READY")) {
                             bothReady();
-                        } else if (msgFromGroupChat.contains("YOUR_TURN")) {
+                        } else if (msgFromServer.contains("YOUR_TURN")) {
                             myTurn = true;
                             showMyTurnText();
-                        } else if (msgFromGroupChat.contains(("OPPONENTS_TURN"))) {
+                        } else if (msgFromServer.contains(("OPPONENTS_TURN"))) {
                             myTurn = false;
                             showNotMyTurnText();
+                        } else if (msgFromServer.contains("HIT")) {
+                            if (clickedPane != null)
+                                clickedPane.setBackground(Background.fill(Paint.valueOf("red")));
+                        } else if (msgFromServer.contains("WIN")) {
+                            String finalMsgFromServer = msgFromServer;
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AppGlobal.showWinningMessage(finalMsgFromServer);
+                                }
+                            });
                         }
                     } catch (IOException e) {
                         closeEverything(socket1, bufferedReader, bufferedWriter);
@@ -1060,9 +1074,9 @@ public class GameScreenController implements Initializable {
     @FXML
     private void hit(MouseEvent event) {
         if (AppGlobal.isGameStarted && myTurn) {
-            Pane clickedPane = (Pane) event.getSource();
+            clickedPane = (Pane) event.getSource();
             System.out.println("Clicked pane: " + clickedPane.getId());
-            client.sendMessage2("HIT");
+            client.sendMessage2("HIT " + clickedPane.getId().substring(4, 6));
             didItHit(clickedPane.getId().substring(4, 6), clickedPane);
             myTurn = false;
         }
