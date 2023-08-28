@@ -35,9 +35,16 @@ public class AppGlobal {
         errorAlert.showAndWait();
     }
     public static void showWinningMessage(String usernamePlayer) {
-        Alert winningAlert = new Alert(Alert.AlertType.INFORMATION);
-        winningAlert.setHeaderText("WIN");
-        winningAlert.setContentText("Player " + usernamePlayer + " has won a game");
-        winningAlert.showAndWait();
+        if (usernamePlayer.contains("YOUR OPPONENT HAS WON THE GAME!")) {
+            Alert winningAlert = new Alert(Alert.AlertType.INFORMATION);
+            winningAlert.setHeaderText("LOSE");
+            winningAlert.setContentText(usernamePlayer);
+            winningAlert.showAndWait();
+        } else {
+            Alert winningAlert = new Alert(Alert.AlertType.INFORMATION);
+            winningAlert.setHeaderText("WIN");
+            winningAlert.setContentText("Player " + usernamePlayer + " has won a game");
+            winningAlert.showAndWait();
+        }
     }
 }

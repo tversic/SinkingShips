@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17f49cca-dbf9-4c50-b377-3b36fb3886e8" name="Changes" comment="communication part 1">
+    <list default="true" id="17f49cca-dbf9-4c50-b377-3b36fb3886e8" name="Changes" comment="finish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/AppGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/AppGlobal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,6 +156,8 @@
       <workItem from="1691828978442" duration="1598000" />
       <workItem from="1691830957852" duration="2542000" />
       <workItem from="1692628412571" duration="1805000" />
+      <workItem from="1692972153031" duration="757000" />
+      <workItem from="1693236648862" duration="1334000" />
     </task>
     <task id="LOCAL-00001" summary="Inital commit">
       <created>1680343343086</created>
@@ -193,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691750134879</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finish">
+      <created>1692972257518</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692972257518</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,30 +224,36 @@
     <MESSAGE value="game done" />
     <MESSAGE value="networking connected" />
     <MESSAGE value="communication part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="communication part 1" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>654</line>
+          <line>668</line>
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>612</line>
+          <line>626</line>
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
-          <line>361</line>
+          <line>375</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/AppGlobal.java</url>
           <line>37</line>
           <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sinkingships/controllers/GameScreenController.java</url>
+          <line>1104</line>
+          <option name="timeStamp" value="200" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -50,6 +50,14 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    private void finishGame() throws IOException {
+        for (ClientHandler clientHandler : clientHandlers) {
+            clientHandler.bufferedWriter.write("FINISH");
+            clientHandler.bufferedWriter.newLine();
+            clientHandler.bufferedWriter.flush();
+        }
+    }
+
     public void broadcastMessage(String messageToSend) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
@@ -82,6 +90,7 @@ public class ClientHandler implements Runnable {
                                 clientHandler.bufferedWriter.write("WIN " + "Player " + yourHandler.get().userName + " has won a game");
                                 clientHandler.bufferedWriter.newLine();
                                 clientHandler.bufferedWriter.flush();
+                                finishGame();
 
                                 /*Alert winningAlert = new Alert(Alert.AlertType.NONE);
                                 winningAlert.setHeaderText("WIN");

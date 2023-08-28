@@ -16,6 +16,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.io.*;
 import java.net.Socket;
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 
 @NoArgsConstructor
 public class GameScreenController implements Initializable {
+    private boolean win = false;
 
     private int cycleStatus = 0;
     private Draggable draggable = new Draggable();
@@ -233,6 +235,7 @@ public class GameScreenController implements Initializable {
 
     public void listenForMessage() {
         new Thread(new Runnable() {
+            @SneakyThrows
             @Override
             public void run() {
                 String msgFromServer;
@@ -253,12 +256,23 @@ public class GameScreenController implements Initializable {
                                 clickedPane.setBackground(Background.fill(Paint.valueOf("red")));
                         } else if (msgFromServer.contains("WIN")) {
                             String finalMsgFromServer = msgFromServer;
+                            win = true;
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
                                     AppGlobal.showWinningMessage(finalMsgFromServer);
                                 }
                             });
+                        } else if (msgFromServer.contains("FINISH")) {
+                            if (!win)
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        AppGlobal.showWinningMessage("YOUR OPPONENT HAS WON THE GAME!");
+                                    }
+                                });
+                            Thread.sleep(5000);
+                            System.exit(0);
                         }
                     } catch (IOException e) {
                         closeEverything(socket1, bufferedReader, bufferedWriter);
@@ -1076,9 +1090,10 @@ public class GameScreenController implements Initializable {
         if (AppGlobal.isGameStarted && myTurn) {
             clickedPane = (Pane) event.getSource();
             System.out.println("Clicked pane: " + clickedPane.getId());
-            client.sendMessage2("HIT " + clickedPane.getId().substring(4, 6));
             didItHit(clickedPane.getId().substring(4, 6), clickedPane);
-            myTurn = false;
+            if (!myTurn) {
+                client.sendMessage2("HIT " + clickedPane.getId().substring(4, 6));
+            }
         }
     }
 
@@ -1087,18 +1102,10 @@ public class GameScreenController implements Initializable {
             this.opponentsBoard[Integer.parseInt(String.valueOf(coordinates.charAt(1)))][Integer.parseInt(String.valueOf(coordinates.charAt(0)))] = false;
             clickedPane.setBackground(Background.fill(Paint.valueOf("red")));
         } else
-            if (clickedPane.getBackground() != null
-                    && !clickedPane.getBackground().equals(Background.fill(Paint.valueOf("red"))))
+            if (clickedPane.getBackground() == null) {
                 clickedPane.setBackground(Background.fill(Paint.valueOf("yellow")));
-            else if (clickedPane.getBackground() == null)
-                clickedPane.setBackground(Background.fill(Paint.valueOf("yellow")));
-     /*   if (checkWin()) {
-            AppGlobal.showWinningMessage();
-            System.exit(0);
-        }
-
-      */
-
+                myTurn = false;
+            }
     }
 
     @FXML
